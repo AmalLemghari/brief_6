@@ -1,0 +1,26 @@
+CREATE DATABASE Système_DataWare;
+USE Système_DataWare;
+
+
+CREATE TABLE utilisateur (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    username VARCHAR(50),
+    email VARCHAR(50),
+    password VARCHAR(255)
+);
+
+CREATE TABLE equipe (
+    id_equipe INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nom_equipe VARCHAR(50) NOT NULL,
+    date_creation DATE,
+    membre_equipe INT,
+    FOREIGN KEY (membre_equipe) REFERENCES utilisateur(id)
+);
+
+CREATE TABLE projet (
+    id_projet INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nom_projet VARCHAR(50) NOT NULL,
+    description VARCHAR(255),
+    date_creation DATE
+);
+
